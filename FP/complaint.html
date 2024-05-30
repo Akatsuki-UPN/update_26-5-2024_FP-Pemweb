@@ -10,52 +10,44 @@
 <body>
     <header>
         <nav class="navbar">
-            <a href="#" class="logo">SIPAJULI<span>.</span></a>
+            <a href="index.html" class="logo">SIPAJULI<span>.</span></a>
+            <div id="menu-btn" class="menu-icon">&#9776;</div>
             <ul class="menu-links">
-                <span id="close-menu-btn" class="material-symbols-outline">close</span>
-                <li><a href="complaint.html">Laporan Pengaduan</a></li>
                 <li><a href="list_complaints.html">Status Pengajuan</a></li>
-                <li><a href="login.html">Profil</a></li>
-                <li><a href="profile.html">Login Admin</a></li>
+                <li><a href="userprofil.html">Profil</a></li>
             </ul>
-            <span id="menu-btn" class="material-symbols-outline">menu</span>
+            <div id="close-menu-btn" class="menu-icon">&times;</div>
         </nav>
     </header>
 
-    <section class="hero-section">
-        <div class="overlay"></div>
-        <div class="content">
+    <div class="container">
+        <div class="form-wrapper">
             <h1>Ajukan Pengaduan Parkir Liar</h1>
-            <form action="submit_complaint.php" method="post" enctype="multipart/form-data">
-                <label for="name">Nama:</label>
-                <input type="text" id="name" name="name" required />
-                <label for="description">Deskripsi:</label>
-                <textarea id="description" name="description" required></textarea>
-                <label for="photo">Foto:</label>
-                <input type="file" id="photo" name="photo" accept="image/*" />
+            <form id="complaintForm">
+                <div class="input-group">
+                    <label for="name">Nama:</label>
+                    <input type="text" id="name" name="name" required />
+                </div>
+                <div class="input-group">
+                    <label for="description">Deskripsi:</label>
+                    <textarea id="description" name="description" required></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="photo">Foto:</label>
+                    <input type="file" id="photo" name="photo" accept="image/*" />
+                </div>
                 <button type="submit">Kirim Pengaduan</button>
+                <div id="errorMessage" style="color:red;"></div>
+                <button type="button" class="back-btn" onclick="history.back()">Back</button>
             </form>
-            <button id="backBtn">Back</button>
         </div>
-    </section>
+    </div>
 
-    <script>
-        const header = document.querySelector("header");
-        const menuBtn = document.querySelector("#menu-btn");
-        const closeMenuBtn = document.querySelector("#close-menu-btn");
-        const backBtn = document.querySelector("#backBtn");
+    <footer>
+        <p>&copy; 2024 SIPAJULI - Pengaduan Parkir Liar</p>
+    </footer>
 
-        menuBtn.addEventListener("click", () => {
-            header.classList.toggle("show-mobile-menu");
-        });
-
-        closeMenuBtn.addEventListener("click", () => {
-            header.classList.toggle("show-mobile-menu");
-        });
-
-        backBtn.addEventListener("click", () => {
-            window.location.href = "index.html"; // Mengarahkan ke halaman index.html
-        });
-    </script>
+    <!-- JavaScript -->
+    <script type="module" src="js/complaint.js"></script>
 </body>
 </html>
